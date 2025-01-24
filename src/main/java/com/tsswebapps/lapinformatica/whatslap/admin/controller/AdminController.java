@@ -1,5 +1,7 @@
 package com.tsswebapps.lapinformatica.whatslap.admin.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminController {
 
     @GetMapping("/admin")
-    public String adminHome(Model model) {
-        model.addAttribute("message", "Bem-vindo à Página de Administração");
+    public String adminHome(Model model, @AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
+        model.addAttribute("message", "Bem-vindo ! ".concat(username).concat(" à Página de Administração") );
+        model.addAttribute("username", username);
         return "adminHome";
     }
 
