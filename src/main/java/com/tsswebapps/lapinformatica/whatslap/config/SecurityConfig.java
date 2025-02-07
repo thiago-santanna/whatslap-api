@@ -33,6 +33,7 @@ public class SecurityConfig {
                 .securityMatcher("/api/**", "/auth/**") // Apenas para rotas que começam com /api/
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/**").permitAll()
+                        .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable) // Desativar CSRF para APIs
