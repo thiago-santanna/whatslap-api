@@ -1,6 +1,4 @@
-package com.tsswebapps.lapinformatica.whatslap.domain.model;
-
-import jakarta.persistence.Column;
+package com.tsswebapps.lapinformatica.whatslap.api.local.dto;
 
 public record EmpresaWhatsDto(
     String tokenFIxo,

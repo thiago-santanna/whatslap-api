@@ -1,7 +1,7 @@
 package com.tsswebapps.lapinformatica.whatslap.mappers;
 
 import com.tsswebapps.lapinformatica.whatslap.domain.model.EmpresaWhatsApp;
-import com.tsswebapps.lapinformatica.whatslap.domain.model.EmpresaWhatsDto;
+import com.tsswebapps.lapinformatica.whatslap.api.local.dto.EmpresaWhatsDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
