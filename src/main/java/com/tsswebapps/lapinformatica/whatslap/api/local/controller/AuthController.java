@@ -23,11 +23,6 @@ public class AuthController {
         this.jwtUtils = jwtUtils;
     }
 
-    @GetMapping("/saudacao")
-    public String saudacao() {
-        return "Olá, bem-vindo à API AUTH!";
-    }
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
         try {

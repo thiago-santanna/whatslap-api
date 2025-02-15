@@ -5,7 +5,8 @@
 </head>
 <body>
 <h1 th:text="${message}">Fallback Message</h1>
-<a href="/admin/configuracoes">Ir para Configurações</a>
+<h3 th:text="${username}">Fallback username</h3>
+<a href="/admin/configuracoes">Adicionar novo chip</a>
 <form th:action="@{/logout}" method="post">
   <input type="submit" value="Logout">
 </form>

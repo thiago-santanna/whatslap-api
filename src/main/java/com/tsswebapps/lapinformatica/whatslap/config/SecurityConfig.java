@@ -1,6 +1,7 @@
 package com.tsswebapps.lapinformatica.whatslap.config;
 
 import com.tsswebapps.lapinformatica.whatslap.domain.service.CustomUserDetailService;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -50,6 +51,8 @@ public class SecurityConfig {
                 .securityMatcher("/**")
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/register", "/login").permitAll()
+                        .requestMatchers("/static/**").permitAll()
+                        .requestMatchers("/css/**", "/js/**", "/images/**", "/bootstrap/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll())
                 .formLogin(login -> login

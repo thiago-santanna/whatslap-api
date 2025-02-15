@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String getLoginPage(Model model) {
-        model.addAttribute("message", "Bem-vindo à Página de Login");
+        model.addAttribute("message", "Bem-vindo(a)!");
         return "login";
     }
 
