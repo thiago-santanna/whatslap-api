@@ -1,4 +1,4 @@
-package com.tsswebapps.lapinformatica.whatslap.admin.controller;
+package com.tsswebapps.lapinformatica.whatslap.apifrontend.admin;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +17,10 @@ public class AdminController {
         return "adminHome";
     }
 
-    @GetMapping("/admin/configuracoes")
+    @GetMapping("/admin/empresa-whats")
     public String configuracoes(Model model) {
         model.addAttribute("message", "Configurações");
-        return "configuracoes";
+        return "empresa-whats";
     }
 }
 

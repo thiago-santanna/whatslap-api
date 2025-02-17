@@ -7,9 +7,11 @@ import com.tsswebapps.lapinformatica.whatslap.mappers.EmpresaWhatsMapper;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class EmpresaWhatsServiceImpl implements EmpresaWhatsService {
 
     private final EmpresaWhatsRepository repository;

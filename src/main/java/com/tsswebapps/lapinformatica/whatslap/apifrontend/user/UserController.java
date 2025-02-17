@@ -1,4 +1,4 @@
-package com.tsswebapps.lapinformatica.whatslap.web.controller;
+package com.tsswebapps.lapinformatica.whatslap.apifrontend.user;
 
 import com.tsswebapps.lapinformatica.whatslap.domain.model.User;
 import com.tsswebapps.lapinformatica.whatslap.domain.service.UserService;
