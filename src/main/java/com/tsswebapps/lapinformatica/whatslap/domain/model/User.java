@@ -3,9 +3,6 @@ package com.tsswebapps.lapinformatica.whatslap.domain.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 
-import java.util.Objects;
-import java.util.Set;
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -20,16 +17,17 @@ public class User {
     @NotEmpty
     private String password;
 
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private TypeUser typeUser;
 
     public User() {
     }
 
-    public User(Long id, String username, String password, String role) {
+    public User(Long id, String username, String password, TypeUser typeUser) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.typeUser = typeUser;
     }
 
     public Long getId() {
@@ -56,11 +54,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
+    public TypeUser getTypeUser() {
+        return typeUser;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setTypeUser(TypeUser typeUser) {
+        this.typeUser = typeUser;
     }
 }

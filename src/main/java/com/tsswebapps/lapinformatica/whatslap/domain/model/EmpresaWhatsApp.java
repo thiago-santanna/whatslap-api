@@ -1,5 +1,6 @@
 package com.tsswebapps.lapinformatica.whatslap.domain.model;
 
+import com.tsswebapps.lapinformatica.whatslap.api.local.dto.EmpresaWhatsDto;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -96,5 +97,23 @@ public class EmpresaWhatsApp {
                 ", idApiWhats='" + versaoApiWhats + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void parseDataFromDto(EmpresaWhatsDto empresaDto) {
+        if(Objects.nonNull(empresaDto.idTelefone())) {
+            this.setIdTelefone(empresaDto.idTelefone());
+        }
+
+        if(Objects.nonNull(empresaDto.tokenFIxo())) {
+            this.setTokenFIxo(empresaDto.tokenFIxo());
+        }
+
+        if(Objects.nonNull(empresaDto.versaoApiWhats())) {
+            this.setVersaoApiWhats(empresaDto.versaoApiWhats());
+        }
+
+        if(Objects.nonNull(empresaDto.name())) {
+            this.setName(empresaDto.name());
+        }
     }
 }
