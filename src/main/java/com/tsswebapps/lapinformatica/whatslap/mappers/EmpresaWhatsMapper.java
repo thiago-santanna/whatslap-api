@@ -6,9 +6,7 @@ import org.mapstruct.*;
 
 import java.util.Objects;
 
-@Mapper(componentModel = "spring",
-        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
-        nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
+@Mapper(componentModel = "spring")
 public interface EmpresaWhatsMapper {
     EmpresaWhatsApp toEntity(EmpresaWhatsDto empresaWhatsDto);
     EmpresaWhatsDto toDto(EmpresaWhatsApp empresaWhatsApp);

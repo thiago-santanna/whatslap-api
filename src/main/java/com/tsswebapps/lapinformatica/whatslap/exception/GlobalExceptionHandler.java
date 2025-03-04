@@ -24,6 +24,6 @@ public class GlobalExceptionHandler {
     // Tratando exceções genéricas
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGlobalException(Exception ex, WebRequest request) {
-        return new ResponseEntity<>("Ocorreu um erro inesperado", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>("Ocorreu um erro inesperado - ex: - ".concat(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

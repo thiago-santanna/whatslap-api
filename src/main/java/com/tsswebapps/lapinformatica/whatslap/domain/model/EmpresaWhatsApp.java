@@ -99,21 +99,21 @@ public class EmpresaWhatsApp {
                 '}';
     }
 
-    public void parseDataFromDto(EmpresaWhatsDto empresaDto) {
-        if(Objects.nonNull(empresaDto.idTelefone())) {
-            this.setIdTelefone(empresaDto.idTelefone());
+    public void parseDataFromDto(EmpresaWhatsDto dto) {
+        if(Objects.nonNull(dto.idTelefone()) && !dto.idTelefone().isBlank()) {
+            this.setIdTelefone(dto.idTelefone());
         }
 
-        if(Objects.nonNull(empresaDto.tokenFIxo())) {
-            this.setTokenFIxo(empresaDto.tokenFIxo());
+        if(Objects.nonNull(dto.tokenFIxo()) && !dto.tokenFIxo().isBlank()) {
+            this.setTokenFIxo(dto.tokenFIxo());
         }
 
-        if(Objects.nonNull(empresaDto.versaoApiWhats())) {
-            this.setVersaoApiWhats(empresaDto.versaoApiWhats());
+        if(Objects.nonNull(dto.versaoApiWhats()) && !dto.versaoApiWhats().isBlank()) {
+            this.setVersaoApiWhats(dto.versaoApiWhats());
         }
 
-        if(Objects.nonNull(empresaDto.name())) {
-            this.setName(empresaDto.name());
+        if(Objects.nonNull(dto.name()) && !dto.name().isBlank()) {
+            this.setName(dto.name());
         }
     }
 }
