@@ -69,7 +69,7 @@ public class EmpresaWhatsServiceImpl implements EmpresaWhatsService {
     }
 
     @Override
-    @Cacheable
+    @Cacheable(value = "tokens", key = "#page")
     public Page<EmpresaWhatsApp> listarTodas(int page, int size) {
         return repository.findAll(PageRequest.of(page, size));
     }

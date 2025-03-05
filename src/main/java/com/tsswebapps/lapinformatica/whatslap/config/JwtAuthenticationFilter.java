@@ -8,6 +8,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -25,7 +26,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private Bucket createNewBucket() {
         return new LocalBucketBuilder()
-                .addLimit(limit -> limit.capacity(5).refillIntervally(5, Duration.ofMinutes(1)))
+                .addLimit(limit -> limit.capacity(7).refillIntervally(7, Duration.ofMinutes(10)))
                 .build();
     }
 
@@ -37,8 +38,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         Bucket bucket = cache.computeIfAbsent(clientIp, k -> createNewBucket());
 
         if (bucket.tryConsume(1)) {
-            String RequestUri = request.getRequestURI();
-            if (!RequestUri.contains("/auth")) {
+            String requestUri = request.getRequestURI();
+            if (!StringUtils.containsIgnoreCase(requestUri, "auth")) {
                 String authorizationHeader = request.getHeader("Authorization");
 
                 if (Objects.isNull(authorizationHeader) || authorizationHeader.isBlank()) {
